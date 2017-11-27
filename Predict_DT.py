@@ -31,12 +31,14 @@ print("Accuracy for gini index is ", accuracy_score(y_test,y_pred)*100)
 
 print("Accuracy for DT with criterion as Information gain is ", accuracy_score(y_test,y_pred_en)*100)
 
-result1 = clf_gini.predict([[39.1,-121.6,18.9,4.92,0,63],[37.6,-121.0,22.3,6.93,0,72]])
-print('The predicted result using RF for sensor data record [39.5,-121.6,57.9,6.71,69 --> N]  is: ')
+result1 = clf_gini.predict([[33.6,-116.2,-36,6.04,0.1,99], [33.3,-117.3,22.9,9.84,1.25,59],
+                       [34.2,-118.5,234.7,10.51,6.51,52], [38.5,-121.5,4.6,2.24,0,61]])
+print('N : The predicted result using DT for Case 1, Case 2, Case 3 and Case 4  is: ')
 print(result1)
 
-result2 = clf_gini.predict([[41.3,-122.3,1077.5,0.67,0,60],[41.3,-122.3,1077.5,2.24,0,64]])
-print('The predicted result using RF for sensor data record [39.5,-121.6,57.9,2.46,73 ----> Y] is: ')
+result2 = clf_gini.predict([[34.8,-114.6,271.3,6.04,0.1,115], [40.5,-122.3,151.5,9.84,0.94,58],
+                       [40.5,-120.3,2545.7,1.12,1.6,72], [33.6,-116.2,-36,9.62,0,89]])
+print('Y : The predicted result using DT for Case 5, Case 6, Case 7 and Case 8 is: ')
 print(result2)
 
 filename = 'model_DT.sav'
