@@ -18,11 +18,11 @@ y_pred = clf_svm.predict(X_test)
 print("Accuracy for SVM is ", accuracy_score(y_test, y_pred)*100)
 
 result1 = clf_svm.predict([[39.1,-121.6,18.9,4.92,0,63],[37.6,-121.0,22.3,6.93,0,72]])
-print('The predicted result using RF for sensor data record [39.1,-121.6,18.9,4.92,0,63 --> N]  is: ')
+print('The predicted result using SVM for sensor data record [39.1,-121.6,18.9,4.92,0,63 --> N]  is: ')
 print(result1)
 
 result2 = clf_svm.predict([[41.3,-122.3,1077.5,0.67,0,60],[41.3,-122.3,1077.5,2.24,0,64]])
-print('The predicted result using RF for sensor data record [41.3,-122.3,1077.5,0.67,0,60 ----> Y] is: ')
+print('The predicted result using SVM for sensor data record [41.3,-122.3,1077.5,0.67,0,60 ----> Y] is: ')
 print(result2)
 
 filename = 'model_SVM.sav'
