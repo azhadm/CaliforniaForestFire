@@ -1,0 +1,10 @@
+It contains data for 10 years - from 2006 to 2015
+This dataset was created by after various pre-processing and performing join on date, latitude and, longitude on FPA_FOD data and weatehr data from NOAA. 
+Following are the columns:
+Latitude
+Longitude
+Elevation
+AWND (Wind)
+PRCP (Precipitation)
+TMAX (Maximum temperature)
+Fire (Classifier used to tell whether fire occurred or not)
