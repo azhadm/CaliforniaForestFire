@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="{{ url_for('static', filename = 'jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'script.js') }}"></script>
+      <title>Fire Prediction</title>
+    <style>
+      #map {
+		float:left;
+        height: 600px;
+        width: 75%;
+       }
+	  #form {
+		text-align:center;
+		float:right;
+        width: 25%;
+       }
+        .label {
+            text-align:left;
+            float:left;
+        }
+        .forminput {
+            float:right;
+        }
+        .row{
+            margin: 5% 12% 5% 12%;
+        }
+    </style>
+  </head>
+  <body>
+    <h3>Fire Prediction</h3>
+    <div id="map"></div>
+	<div id="form">
+		<h2>Inputs</h2>
+		<form>
+			<div class="row"><label class="label">Latitude</label> <input class='forminput' name="latitude" id="latitude" readonly/> <br /></div>
+            <div class="row"><label class="label">Longitude</label> <input class='forminput' name="longitude" id="longitude" readonly/> <br /></div>
+			<div class="row"><label class="label">Elevation</label><input class='forminput' name="elevation" id="elevation" value="1077.5" /> <br /></div>
+            <div class="row"><label class="label">Wind</label> <input class='forminput' name="wind" id="wind" value="0.67"/> <br /></div>
+			<div class="row"><label class="label">Precipitation</label> <input class='forminput' name="precipitation" id="precipitation" value="0"/> <br /></div>
+			<div class="row"><label class="label">Max Temprature</label> <input class='forminput' name="maxTemprature" id="maxTemprature" value="60"/> <br /></div>
+			<input type="button" value="Check" id="btnPredict" data-url="{{url_for('predict')}}"/>
+		</form>
+        <div id="predictionResult" style="display: none">
+            <div class="row"><label class="label">Decision Tree</label> <label id="dt_result"></label> <br /></div>
+            <div class="row"><label class="label">MLP Classifier</label> <label id="ann_result"></label> <br /></div>
+            <div class="row"><label class="label">Random Forest</label> <label id="rf_result"></label> <br /></div>
+        </div>
+	</div>
+    <script>
+      function initMap() {
+		var lat=41.3,lng=-122.3;
+		latitude = document.getElementById("latitude");
+		longitude = document.getElementById("longitude");
+		latitude.value=lat;
+		longitude.value=lng;
+        var uluru = {lat: lat, lng: lng};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+		  draggable:true
+        });
+		google.maps.event.addListener(marker, 'dragend', function(event) {
+		   latitude.value = event.latLng.lat().toFixed(3);
+		   longitude.value = event.latLng.lng().toFixed(3);
+		});
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ8UfF-kzlQZRUrcuK7TxVQSfMUpdX1lM&callback=initMap">
+    </script>
+  </body>
+</html>
