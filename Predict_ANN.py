@@ -11,7 +11,7 @@ Y = sensor_data.values[:,6]
 
 X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.3, random_state = 100)
 
-clf = MLPClassifier()
+clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
 clf.fit(X_train, y_train)
 
 y_pred = clf.predict(X_test)
