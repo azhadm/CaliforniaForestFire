@@ -1,0 +1,16 @@
+Classifier,Test_data_split,FScore
+Extra Trees,0.3,0.9882
+Extra Trees,0.2,0.988
+Extra Trees,0.1,0.9883
+Gradient Boosting,0.3,0.9899
+Gradient Boosting,0.2,0.99
+Gradient Boosting,0.1,0.99
+SGD,0.3,0.989
+SGD,0.2,0.9902
+SGD,0.1,0.9414
+Random Forest,0.3,0.9879
+Random Forest,0.2,0.9881
+Random Forest,0.1,0.9883
+Decision Tree,0.3,0.9853
+Decision Tree ,0.2,0.98612
+Decision Tree,0.1,0.9865

@@ -1,0 +1,11 @@
+Classifier,No_of_folds,Cross_validation_score
+Extra Trees,10,0.98844615
+Extra Trees,5,0.988233985
+Gradient Boosting,10,0.990199045
+Gradient Boosting,5,0.99019209
+SGD,10,0.989823422
+SGD,5,0.98341007
+Random Forest,10,0.988004431
+Random Forest,5,0.987983567
+Decision Tree,10,0.986540211
+Decision Tree,5,0.986063724
