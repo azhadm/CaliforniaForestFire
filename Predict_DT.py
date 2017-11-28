@@ -2,16 +2,13 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, f1_score
 from sklearn import tree
 import pickle
 
 sensor_data = pd.read_csv('CA_Forest_Dataset_Final.csv')
 X = sensor_data.values[:, 0:6]
 Y = sensor_data.values[:,6]
-
-print(X)
-print(Y)
 
 X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.3, random_state = 100)
 
@@ -27,9 +24,13 @@ print(y_pred)
 y_pred_en = clf_entropy.predict(X_test)
 print(y_pred_en)
 
-print("Accuracy for gini index is ", accuracy_score(y_test,y_pred)*100)
+print("Accuracy for DT with gini index is ", accuracy_score(y_test,y_pred)*100)
+print("F-score:")
+print(f1_score(y_test, y_pred, average='micro'))
 
-print("Accuracy for DT with criterion as Information gain is ", accuracy_score(y_test,y_pred_en)*100)
+print("Accuracy for DT with information gain is ", accuracy_score(y_test,y_pred_en)*100)
+print("F-score:")
+print(f1_score(y_test, y_pred_en, average='micro'))
 
 result1 = clf_gini.predict([[33.6,-116.2,-36,6.04,0.1,99], [33.3,-117.3,22.9,9.84,1.25,59],
                        [34.2,-118.5,234.7,10.51,6.51,52], [38.5,-121.5,4.6,2.24,0,61]])
