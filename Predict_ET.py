@@ -14,7 +14,7 @@ X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.1)
 
 clf = ExtraTreesClassifier()
 
-kf_total = cross_validation.KFold(len(X), n_folds=10, shuffle=True, random_state=4)
+kf_total = cross_validation.KFold(len(X), n_folds=5, shuffle=True, random_state=4)
 print("Cross validation accuracy is ", np.mean(cross_validation.cross_val_score(clf, X, Y, cv=kf_total, n_jobs = 1)))
 
 clf.fit(X_train, y_train)

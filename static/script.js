@@ -24,9 +24,8 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, xhr) {
                 if (xhr.status === 200) {
-                    $("#dt_result").html(data.dt_result);
-                    $("#ann_result").html(data.ann_result);
-                    $("#rf_result").html(data.rf_result);
+                    $("#result1").html(data.result1);
+                    $("#result2").html(data.result2);
                 }
             },
             complete: function(xhr, textStatus) {
